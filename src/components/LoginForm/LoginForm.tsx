@@ -14,6 +14,7 @@ import { FormEvent, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useStore } from "../../zustand/useStore";
 import { useRouter } from "next/navigation";
+import { DataType } from "@/types/types";
 
 export const description =
   "A simple login form with email and password. The submit button says 'Sign in'.";
@@ -31,7 +32,7 @@ export function LoginForm() {
 
   const router = useRouter();
 
-  function HandleLogin(data) {
+  function HandleLogin(data: DataType) {
     saveTokens(data);
     router.push("myInfo/timeOff");
   }

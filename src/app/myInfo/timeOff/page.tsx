@@ -17,7 +17,7 @@ import { gql, useQuery } from "@apollo/client";
 import Image from "next/image";
 
 export default function MyInfoTimeOffPage() {
-  const { accessToken /* refreshToken */ } = useStore();
+  const { accessToken } = useStore();
   const GET_MY_PROFILE = gql`
     query {
       myProfile {

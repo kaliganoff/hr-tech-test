@@ -1,6 +1,14 @@
+import { DataType } from "@/types/types";
 import { create } from "zustand";
 
-export const useStore = create((set) => ({
+interface StoreState {
+  accessToken: string;
+  refreshToken: string;
+  saveTokens: (data: DataType) => void;
+  removeTokens: () => void;
+}
+
+export const useStore = create<StoreState>((set) => ({
   accessToken: "",
   refreshToken: "",
   saveTokens: (data) =>
