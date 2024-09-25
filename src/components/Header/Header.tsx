@@ -15,7 +15,7 @@ export function Header({ avatar }: { avatar: string }) {
   }
   return (
     <header className="flex px-4 pt-8">
-      <div className="text-xl font-bold">HarmonyHR</div>
+      <div className="text-xl font-bold sm:mr-16">HarmonyHR</div>
       <nav className="hidden sm:block">
         <ul className="flex text-lg">
           <li className="p-4 hover:cursor-pointer">Home</li>
@@ -32,6 +32,14 @@ export function Header({ avatar }: { avatar: string }) {
         className="hidden sm:block w-96 mr-4"
         placeholder="🔍 Search"
       ></Input>
+      <Input className="sm:hidden mr-4 w-10" placeholder="🔍"></Input>
+      <Image
+        className="sm:hidden size-6 hover:cursor-pointer"
+        src="/images/burger.png"
+        alt="burger"
+        width={24}
+        height={24}
+      ></Image>
       <div className="flex gap-6 items-center">
         <Image
           className="hidden sm:block size-6 hover:cursor-pointer"
@@ -58,7 +66,11 @@ export function Header({ avatar }: { avatar: string }) {
           <AvatarImage src={avatar} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <Button className="text-sm" onClick={HandleSignOut}>
+        <Button
+          className="text-sm"
+          onClick={HandleSignOut}
+          variant={"secondary"}
+        >
           Sign
           <br />
           Out

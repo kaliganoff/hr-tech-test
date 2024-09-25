@@ -31,7 +31,7 @@ export default function MyInfoTimeOffPage() {
   const { loading, error, data } = useQuery(GET_MY_PROFILE, {
     context: {
       headers: {
-        Authorization: `Bearer ${localStorage.tokenStorage?.state?.accessToken || accessToken}`,
+        Authorization: `Bearer ${accessToken || localStorage?.tokenStorage?.state?.accessToken}`,
       },
     },
   });
@@ -44,14 +44,14 @@ export default function MyInfoTimeOffPage() {
       <Header avatar={data.myProfile.avatar} />
       <div className="bg-[#f0f3f8]">
         <div className="flex bg-[#dae6f2]">
-          <Avatar className="size-36 ml-28 mt-8 z-50">
+          <Avatar className="size-16 sm:size-36 ml-28 mt-8 z-50">
             <AvatarImage src={data.myProfile.avatar} />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <div className="mt-16 ml-16 w-3/5 flex flex-col justify-between">
             <div className="flex justify-between">
               <p className="font-semibold text-[28px]">{data.myProfile.name}</p>
-              <div className="flex">
+              <div className="hidden sm:flex">
                 <Select>
                   <SelectTrigger>
                     <SelectValue placeholder="Request change" />
@@ -71,7 +71,7 @@ export default function MyInfoTimeOffPage() {
                 </Select>
               </div>
             </div>
-            <ul className="flex gap-4 text-sm">
+            <ul className="flex gap-4 text-sm ml-[-200px] sm:ml-0">
               <li className="p-4 hover:cursor-pointer">Personal</li>
               <li className="p-4 hover:cursor-pointer">Job</li>
               <li className="bg-white border rounded-t-lg p-4 hover:cursor-pointer">
@@ -93,7 +93,7 @@ export default function MyInfoTimeOffPage() {
             </ul>
           </div>
         </div>
-        <div className="flex px-16 gap-6">
+        <div className="flex px-4 sm:px-16 gap-6">
           <div className="sm:flex flex-col gap-4 hidden relative bottom-4 z-0 text-4 font-medium">
             <div className="flex flex-col gap-4 p-6 bg-white rounded-2xl">
               <div className="flex gap-2">
@@ -260,19 +260,19 @@ export default function MyInfoTimeOffPage() {
               </div>
             </div>
           </div>
-          <div className="bg-white w-4/5 px-5 pt-11">
+          <div className="bg-white w-full sm:w-4/5 px-5 pt-11">
             <div className="flex w-full justify-between items-end">
               <div className="flex gap-3 mb-3 text-xl">
                 <Image
-                  className="size-4"
+                  className="size-4 hidden sm:block"
                   src="/images/time-off.png"
                   alt="time-off"
                   width={16}
                   height={16}
                 />
-                <p className="text-[#204973]">Time Off</p>
+                <p className="text-[#204973] hidden sm:block">Time Off</p>
               </div>
-              <div className="flex items-center">
+              <div className="flex flex-col sm:flex-row items-center">
                 <p>Accrual Level Start Date</p>
                 <p className="text-[#3758ab] ml-1">03/09/2020</p>
                 <Button className="ml-7 mb-3" variant="outline">
@@ -282,7 +282,7 @@ export default function MyInfoTimeOffPage() {
             </div>
             <Separator className="bg-[#7c96b1]" />
             <div>
-              <div className="flex gap-12 pt-6 px-20 w-[888px]">
+              <div className="flex gap-12 pt-6 px-20 w-[888px] ml-[-80px] sm:ml-0">
                 <div>
                   <div className="bg-[#f0f3f8] w-64 h-36 flex flex-col justify-center items-center gap-1 rounded-lg">
                     <p className="text-xl font-semibold">Sick</p>
@@ -389,7 +389,7 @@ export default function MyInfoTimeOffPage() {
                 />
                 3<p>History</p>
               </div>
-              <div className="flex">
+              <div className="flex flex-col sm:flex-row">
                 <Select>
                   <SelectTrigger className="w-64">
                     <SelectValue placeholder="Sick" />
