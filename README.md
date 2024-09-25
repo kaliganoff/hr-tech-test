@@ -10,3 +10,6 @@
 3. Запустите девсервер: npm run dev
 
 Использовать мутацию refreshToken с этим API бессмысленно, потому что access token действует гораздо дольше. Таким образом, когда access token устареет, refresh token также уже давно будет устаревшим.
+
+E-mail для входа: john@mail.com
+Пароль: changeme
